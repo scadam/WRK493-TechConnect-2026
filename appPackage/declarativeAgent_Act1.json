@@ -14,5 +14,48 @@
         "suggestions": {
             "disabled": false
         }
-    }
+    },
+    "capabilities": [
+        {
+            "name": "OneDriveAndSharePoint",
+            "items_by_url": [
+                {
+                    "url": "https://microsofteur.sharepoint.com/teams/WRK493/Shared%20Documents"
+                }
+            ]
+        },
+        {
+            "name": "TeamsMessages",
+            "urls": [
+                {
+                    "url": "https://teams.microsoft.com/l/channel/19%3A0250c2f80f13439f91b10f1052425555%40thread.skype/M365%20Copilot?groupId=381ff9d6-c502-4fbf-8ec4-ea237b50bbcf&tenantId=72f988bf-86f1-41af-91ab-2d7cd011db47"
+                }
+            ]
+        },
+        {
+            "name": "People"
+        },
+        {
+            "name": "Email",
+            "folders": [
+                {
+                    "folder_id": "inbox"
+                }
+            ]
+        },
+        {
+            "name": "GraphConnectors",
+            "connections": [
+                {
+                    "connection_id": "ServiceNowCatalog2212"
+                }
+            ]
+        },
+        {
+            "name": "GraphicArt"
+        },
+        {
+            "name": "CodeInterpreter"
+        }
+    ]
 }
