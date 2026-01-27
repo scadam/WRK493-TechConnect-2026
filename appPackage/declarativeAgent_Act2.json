@@ -16,6 +16,10 @@
         {
             "id": "salesforcemcp",
             "file": "mcp-plugin.json"
+        },
+        {
+            "id": "salesforceopenapi",
+            "file": "sf-plugin.json"
         }
     ],
     "conversation_starters": [
@@ -30,6 +34,18 @@
         {
             "title": "Product Mentions",
             "text": "Identify and analyze product mentions in client meetings."
+        },
+        {
+            "title": "Account Details",
+            "text": "Get all details for the Account named [Edge Communications]"
+        },
+        {
+            "title": "Contact Details",
+            "text": "Get all details for the Account named [Edge Communications] and the related Contacts"
+        },
+        {
+            "title": "Opportunity Details",
+            "text": "Get all details for the Account named [Edge Communications] and the related Opportunities"
         }
     ]
 }

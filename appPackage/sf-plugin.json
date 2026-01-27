@@ -1,0 +1,47 @@
+{
+    "$schema": "https://developer.microsoft.com/json-schemas/copilot/plugin/v2.2/schema.json",
+    "schema_version": "v2.2",
+    "name_for_human": "Advisor Assistant",
+    "description_for_human": "API for querying Salesforce data",
+    "namespace": "advisorassistant",
+    "functions": [
+        {
+            "name": "runQuery",
+            "description": "Execute a SOQL query",
+            "capabilities": {
+                "response_semantics": {
+                    "data_path": "$.records",
+                    "properties": {
+                        "title": "$.attributes.type",
+                        "subtitle": "$.Id"
+                    }
+                }
+            }
+        }
+    ],
+    "runtimes": [
+        {
+            "type": "OpenApi",
+            "auth": {
+                "type": "OAuthPluginVault",
+                "reference_id": "NzJmOTg4YmYtODZmMS00MWFmLTkxYWItMmQ3Y2QwMTFkYjQ3IyMyNDVhN2VmMy01N2Y2LTRkYjgtODlhZC1hOWE1MzAxMjcyNDY="
+            },
+            "spec": {
+                "url": "apiSpecificationFile/openapi.yaml"
+            },
+            "run_for_functions": [
+                "runQuery"
+            ]
+        }
+    ],
+    "capabilities": {
+        "conversation_starters": [
+            {
+                "text": "Get all details for the Account named [Edge Communications] and the related Opportunities. Show the Account details as a header and under this show the Opportunities as a table. Do not include Closed Won opportunities. Remove Owner ID and Lead Source and format Created Date to show the time."
+            },
+            {
+                "text": "Create a management report for our top client. Add in their opportunities, assets and cases and look for potential opportunities to upsell and cross-sell. Also bring in news and conduct an analysis of probable impact to our asset management business."
+            }
+        ]
+    }
+}
