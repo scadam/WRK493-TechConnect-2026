@@ -1,55 +1,66 @@
-# Overview of the Declarative Agent template
+# WRK493 TechConnect 2026 Declarative Agents
 
-With the declarative agent, you can build a custom version of Copilot that can be used for specific scenarios, such as for specialized knowledge, implementing specific processes, or simply to save time by reusing a set of AI prompts. For example, a grocery shopping Copilot declarative agent can be used to create a grocery list based on a meal plan that you send to Copilot.
+This project contains two Microsoft 365 Copilot declarative agents built with Microsoft 365 Agents Toolkit for the WRK493 TechConnect 2026 session. It includes separate manifests, instructions, and plugin definitions for Act 1 and Act 2.
 
-## Get started with the template
+## What’s in this repo
 
-> **Prerequisites**
->
-> To run this app template in your local dev machine, you will need:
->
-> - [Node.js](https://nodejs.org/), supported versions: 18, 20, 22
-> - A [Microsoft 365 account for development](https://docs.microsoft.com/microsoftteams/platform/toolkit/accounts).
-> - [Microsoft 365 Agents Toolkit Visual Studio Code Extension](https://aka.ms/teams-toolkit) version 5.0.0 and higher or [Microsoft 365 Agents Toolkit CLI](https://aka.ms/teamsfx-toolkit-cli)
-> - [Microsoft 365 Copilot license](https://learn.microsoft.com/microsoft-365-copilot/extensibility/prerequisites#prerequisites)
+### Act 1 — WRK493 TechConnect 2026
+General-purpose declarative agent grounded in:
+- OneDrive/SharePoint content
+- Teams messages
+- People and Email
+- Graph connectors
+- Code Interpreter and Graphic Art
 
-![image](https://github.com/user-attachments/assets/51a221bb-a2c6-4dbf-8009-d2aa20a1638f)
+### Act 2 — Client Meeting Analyst
+Specialized agent that connects to Salesforce data through:
+- OpenAPI plugin (SOQL query endpoint)
+- MCP server plugin for meeting/product insights
 
-1. First, select the Microsoft 365 Agents Toolkit icon on the left in the VS Code toolbar.
-2. In the Account section, sign in with your [Microsoft 365 account](https://docs.microsoft.com/microsoftteams/platform/toolkit/accounts) if you haven't already.
-3. Select `Preview Local in Copilot (Edge)` or `Preview Local in Copilot (Chrome)` from the launch configuration dropdown.
-4. Select your declarative agent from the `Copilot` app.
-5. Ask a question to your declarative agent and it should respond based on the instructions provided.
+Includes curated conversation starters and a non-production disclaimer.
 
-## What's included in the template
+## Prerequisites
 
-| Folder       | Contents                                                                                 |
-| ------------ | ---------------------------------------------------------------------------------------- |
-| `.vscode`    | VSCode files for debugging                                                               |
-| `appPackage` | Templates for the application manifest, the GPT manifest and the API specification |
-| `env`        | Environment files                                                                        |
+- [Node.js](https://nodejs.org/) 18, 20, or 22
+- A [Microsoft 365 developer account](https://docs.microsoft.com/microsoftteams/platform/toolkit/accounts)
+- Microsoft 365 Agents Toolkit (VS Code extension or CLI)
+- A Microsoft 365 Copilot license
 
-The following files can be customized and demonstrate an example implementation to get you started.
+## Run locally
 
-| File                               | Contents                                                                     |
-| ---------------------------------- | ---------------------------------------------------------------------------- |
-| `appPackage/declarativeAgent.json` | Define the behaviour and configurations of the declarative agent.            |
-| `appPackage/manifest.json`         | application manifest that defines metadata for your declarative agent. |
+1. In VS Code, open the Microsoft 365 Agents Toolkit view.
+2. Sign in with your Microsoft 365 account if prompted.
+3. Use the launch configuration to preview locally in Copilot (Edge or Chrome).
+4. In Copilot, pick the agent you want (Act 1 or Act 2).
 
-The following are Microsoft 365 Agents Toolkit specific project files. You can [visit a complete guide on Github](https://github.com/OfficeDev/TeamsFx/wiki/Teams-Toolkit-Visual-Studio-Code-v5-Guide#overview) to understand how Microsoft 365 Agents Toolkit works.
+## Provisioning and packaging
 
-| File           | Contents                                                                                                                                  |
-| -------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| `m365agents.yml` | This is the main Microsoft 365 Agents Toolkit project file. The project file defines two primary things: Properties and configuration Stage definitions. |
+The project defines two provisioning flows:
+- Act 1 + Act 2 combined provisioning in [m365agents.yml](m365agents.yml)
+- Single-app local provisioning in [m365agents.local.yml](m365agents.local.yml)
 
-## Extend the template
+App packages are built to appPackage/build for each environment.
 
-- [Add conversation starters](https://learn.microsoft.com/microsoft-365-copilot/extensibility/build-declarative-agents?tabs=ttk&tutorial-step=3): Conversation starters are hints that are displayed to the user to demonstrate how they can get started using the declarative agent.
-- [Add web content](https://learn.microsoft.com/microsoft-365-copilot/extensibility/build-declarative-agents?tabs=ttk&tutorial-step=4) for the ability to search web information.
-- [Add OneDrive and SharePoint content](https://learn.microsoft.com/microsoft-365-copilot/extensibility/build-declarative-agents?tabs=ttk&tutorial-step=5) as grounding knowledge for the agent.
-- [Add Microsoft Copilot connectors content](https://learn.microsoft.com/microsoft-365-copilot/extensibility/build-declarative-agents?tabs=ttk&tutorial-step=6) to ground agent with enterprise knowledge.
-- [Add API plugins](https://learn.microsoft.com/microsoft-365-copilot/extensibility/build-declarative-agents?tabs=ttk&tutorial-step=7) for agent to interact with REST APIs.
+## Key files
 
-## Addition information and references
+| Path | Description |
+| --- | --- |
+| [m365agents.yml](m365agents.yml) | Main project configuration; provisions and packages Act 1 and Act 2. |
+| [m365agents.local.yml](m365agents.local.yml) | Local-only provisioning for a single app. |
+| [appPackage/manifest_Act1.json](appPackage/manifest_Act1.json) | Teams app manifest for Act 1. |
+| [appPackage/manifest_Act2.json](appPackage/manifest_Act2.json) | Teams app manifest for Act 2. |
+| [appPackage/declarativeAgent_Act1.json](appPackage/declarativeAgent_Act1.json) | Agent definition, grounding sources, and capabilities for Act 1. |
+| [appPackage/declarativeAgent_Act2.json](appPackage/declarativeAgent_Act2.json) | Agent definition, actions, and starters for Act 2. |
+| [appPackage/instruction_Act1.txt](appPackage/instruction_Act1.txt) | System instructions for Act 1. |
+| [appPackage/instruction_Act2.txt](appPackage/instruction_Act2.txt) | System instructions for Act 2. |
+| [appPackage/mcp-plugin.json](appPackage/mcp-plugin.json) | MCP plugin for meeting sentiment, product trends, and insights. |
+| [appPackage/sf-plugin.json](appPackage/sf-plugin.json) | OpenAPI plugin for Salesforce SOQL queries. |
+| [appPackage/apiSpecificationFile/openapi.yaml](appPackage/apiSpecificationFile/openapi.yaml) | OpenAPI spec for Salesforce query endpoint. |
+
+## Notes and disclaimers
+
+The Act 2 agent includes a non‑production disclaimer and is intended for demonstration only. Outputs are AI‑generated and may be incomplete or inaccurate.
+
+## References
 
 - [Declarative agents for Microsoft 365](https://aka.ms/teams-toolkit-declarative-agent)
