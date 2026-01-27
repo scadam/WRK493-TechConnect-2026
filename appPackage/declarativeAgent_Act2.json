@@ -12,6 +12,11 @@
     "disclaimer": {
         "text": "This is a non‑production demonstration agent built for illustrative purposes only, using Salesforce OpenAPI, OAuth, MCP, and OpenAI SDK; outputs are AI‑generated, may be incomplete or inaccurate, and must not be relied on for operational, legal, financial, or compliance decisions."
     },
+    "capabilities": [
+        {
+            "name": "CodeInterpreter"
+        }
+    ],
     "actions": [
         {
             "id": "salesforcemcp",
@@ -20,6 +25,11 @@
         {
             "id": "salesforceopenapi",
             "file": "sf-plugin.json"
+        }
+    ],
+    "worker_agents": [
+        {
+            "id": "T_f93e78f3-d6a0-e7b9-f536-d0c8630dcfdc"
         }
     ],
     "conversation_starters": [
