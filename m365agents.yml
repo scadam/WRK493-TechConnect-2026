@@ -7,15 +7,57 @@ environmentFolderPath: ./env
 
 # Triggered when 'teamsapp provision' is executed
 provision:
-  # Creates an app
+
+  # Creates the act 1 app
   - uses: teamsApp/create
     with:
       # app name
-      name: WRK493 TechConnect 2026${{APP_NAME_SUFFIX}}
+      name: WRK493 TechConnect 2026 Act 1-${{APP_NAME_SUFFIX}}
     # Write the information of created resources into environment file for
     # the specified environment variable(s).
     writeToEnvironmentFile:
-      teamsAppId: TEAMS_APP_ID
+      teamsAppId: TEAMS_APP_ID_1
+
+  # Build app package with latest env value
+  - uses: teamsApp/zipAppPackage
+    with:
+      # Path to manifest template
+      manifestPath: ./appPackage/manifest_Act1.json
+      outputZipPath: ./appPackage/build/appPackage_Act1.${{TEAMSFX_ENV}}.zip
+      outputFolder: ./appPackage/build
+  # Validate app package using validation rules
+  - uses: teamsApp/validateAppPackage
+    with:
+      # Relative path to this file. This is the path for built zip file.
+      appPackagePath: ./appPackage/build/appPackage_Act1.${{TEAMSFX_ENV}}.zip
+  # Update the app manifest to an existing app in Developer Portal.
+  # Will use the app id in manifest file to determine which app to update.
+  - uses: teamsApp/update
+    with:
+      # Relative path to this file. This is the path for built zip file.
+      appPackagePath: ./appPackage/build/appPackage_Act1.${{TEAMSFX_ENV}}.zip
+  # Extend your app to Outlook and the Microsoft 365 app
+  - uses: teamsApp/extendToM365
+    with:
+      # Relative path to the build app package.
+      appPackagePath: ./appPackage/build/appPackage_Act1.${{TEAMSFX_ENV}}.zip
+      scope: ${{AGENT_SCOPE}}
+    # Write the information of created resources into environment file for
+    # the specified environment variable(s).
+    writeToEnvironmentFile:
+      titleId: M365_TITLE_ID_1
+      appId: M365_APP_ID_1
+      shareLink: SHARE_LINK_1
+
+  # Creates the act 2 app
+  - uses: teamsApp/create
+    with:
+      # app name
+      name: WRK493 TechConnect 2026 Act 2-${{APP_NAME_SUFFIX}}
+    # Write the information of created resources into environment file for
+    # the specified environment variable(s).
+    writeToEnvironmentFile:
+      teamsAppId: TEAMS_APP_ID_2
 
   # Build app package with latest env value
   - uses: teamsApp/zipAppPackage
@@ -44,9 +86,9 @@ provision:
     # Write the information of created resources into environment file for
     # the specified environment variable(s).
     writeToEnvironmentFile:
-      titleId: M365_TITLE_ID
-      appId: M365_APP_ID
-      shareLink: SHARE_LINK
+      titleId: M365_TITLE_ID_2
+      appId: M365_APP_ID_2
+      shareLink: SHARE_LINK_2
 
 # Triggered when 'teamsapp publish' is executed
 publish:

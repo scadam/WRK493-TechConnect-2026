@@ -4,22 +4,22 @@
     "version": "1.0.3",
     "id": "${{TEAMS_APP_ID}}",
     "developer": {
-        "name": "Scott Adams & Inbal Peled, MSFT",
-        "websiteUrl": "https://www.microsoft.com",
-        "privacyUrl": "https://www.microsoft.com/privacy",
-        "termsOfUseUrl": "https://www.microsoft.com/termofuse"
+        "name": "My App, Inc.",
+        "websiteUrl": "https://www.example.com",
+        "privacyUrl": "https://www.example.com/privacy",
+        "termsOfUseUrl": "https://www.example.com/termofuse"
     },
     "icons": {
-        "color": "clientagent192.png",
-        "outline": "clientagent32.png"
+        "color": "color.png",
+        "outline": "outline.png"
     },
     "name": {
-        "short": "WRK493 TechConnect 2026 Act 2",
-        "full": "WRK493 TechConnect 2026 Client Meeting Analyst"
+        "short": "WRK493 TechConnect 2026${{APP_NAME_SUFFIX}}",
+        "full": "Full name for WRK493 TechConnect 2026"
     },
     "description": {
-        "short": "WRK493 TechConnect 2026 Act 2 agent",
-        "full": "WRK493 TechConnect 2026 Client Meeting Analyst connects to Salesforce via OpenAPI and MCP"
+        "short": "Short description for WRK493 TechConnect 2026",
+        "full": "Full description for WRK493 TechConnect 2026"
     },
     "accentColor": "#FFFFFF",
     "composeExtensions": [],
@@ -31,7 +31,7 @@
         "declarativeAgents": [            
             {
                 "id": "declarativeAgent",
-                "file": "declarativeAgent_Act2.json"
+                "file": "declarativeAgent_Act1.json"
             }
         ]
     },

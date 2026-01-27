@@ -3,7 +3,7 @@
     "version": "v1.5",
     "name": "WRK493 TechConnect 2026${{APP_NAME_SUFFIX}}",
     "description": "Declarative agent created with Microsoft 365 Agents Toolkit",
-    "instructions": "$[file('instruction.txt')]",
+    "instructions": "$[file('instruction_Act1.txt')]",
     "disclaimer": {
         "text": " 👋 This is ATK agent for WRK493 TechConnect 2026 event"
     },

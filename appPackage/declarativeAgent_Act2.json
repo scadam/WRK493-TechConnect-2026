@@ -3,7 +3,7 @@
     "version": "v1.6",
     "name": "Client Meeting Analyst",
     "description": "Act 2 of the declarative agent created with Microsoft 365 Agents Toolkit",
-    "instructions": "$[file('instruction.txt')]",
+    "instructions": "$[file('instruction_Act2.txt')]",
     "behavior_overrides": {
         "special_instructions": {
             "discourage_model_knowledge": true
