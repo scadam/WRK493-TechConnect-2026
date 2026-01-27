@@ -1,0 +1,563 @@
+{
+    "$schema": "https://developer.microsoft.com/json-schemas/copilot/plugin/v2.1/schema.json",
+    "schema_version": "v2.4",
+    "name_for_human": "Salesforce MCP",
+    "description_for_human": "MCP Server for Salesforce",
+    "namespace": "salesforcemcp",
+    "functions": [
+        {
+            "name": "get_insight",
+            "description": "Return filtered insights across meetings and products. Uses Azure OpenAI when available.",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "product": {
+                        "type": "string"
+                    },
+                    "asset_class": {
+                        "type": "string"
+                    },
+                    "level_1": {
+                        "type": "string"
+                    },
+                    "level_2": {
+                        "type": "string"
+                    },
+                    "level_3": {
+                        "type": "string"
+                    },
+                    "level_4": {
+                        "type": "string"
+                    },
+                    "level_5": {
+                        "type": "string"
+                    },
+                    "sentiment": {
+                        "type": "string"
+                    },
+                    "start_date": {
+                        "type": "string"
+                    },
+                    "end_date": {
+                        "type": "string"
+                    },
+                    "limit": {
+                        "default": "200",
+                        "type": "integer"
+                    }
+                },
+                "required": []
+            }
+        },
+        {
+            "name": "get_meeting_sentiment_segment_trend",
+            "description": "Return trend of positive/neutral/negative percentages over time.",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "start_date": {
+                        "type": "string"
+                    },
+                    "end_date": {
+                        "type": "string"
+                    },
+                    "granularity": {
+                        "default": "month",
+                        "type": "string"
+                    },
+                    "limit": {
+                        "default": "200",
+                        "type": "integer"
+                    }
+                },
+                "required": []
+            }
+        },
+        {
+            "name": "get_meeting_sentiment_trend",
+            "description": "Return trend of overall meeting sentiment (Positive/Neutral/Negative) over time.",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "start_date": {
+                        "type": "string"
+                    },
+                    "end_date": {
+                        "type": "string"
+                    },
+                    "granularity": {
+                        "default": "month",
+                        "type": "string"
+                    },
+                    "limit": {
+                        "default": "200",
+                        "type": "integer"
+                    }
+                },
+                "required": []
+            }
+        },
+        {
+            "name": "get_number_products_trend",
+            "description": "Return trend of how many products/funds were discussed per meeting over time.",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "start_date": {
+                        "type": "string"
+                    },
+                    "end_date": {
+                        "type": "string"
+                    },
+                    "granularity": {
+                        "default": "month",
+                        "type": "string"
+                    },
+                    "limit": {
+                        "default": "200",
+                        "type": "integer"
+                    }
+                },
+                "required": []
+            }
+        },
+        {
+            "name": "get_product_detail",
+            "description": "Return products by mentions with classification levels.",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "start_date": {
+                        "type": "string"
+                    },
+                    "end_date": {
+                        "type": "string"
+                    },
+                    "limit": {
+                        "default": "200",
+                        "type": "integer"
+                    },
+                    "top_n": {
+                        "default": "50",
+                        "type": "integer"
+                    }
+                },
+                "required": []
+            }
+        },
+        {
+            "name": "get_product_trend",
+            "description": "Return trend of mentions for a specific product over time.",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "product": {
+                        "type": "string"
+                    },
+                    "start_date": {
+                        "type": "string"
+                    },
+                    "end_date": {
+                        "type": "string"
+                    },
+                    "granularity": {
+                        "default": "month",
+                        "type": "string"
+                    },
+                    "limit": {
+                        "default": "200",
+                        "type": "integer"
+                    }
+                },
+                "required": [
+                    "product"
+                ]
+            }
+        }
+    ],
+    "runtimes": [
+        {
+            "type": "RemoteMCPServer",
+            "run_for_functions": [
+                "get_insight",
+                "get_meeting_sentiment_segment_trend",
+                "get_meeting_sentiment_trend",
+                "get_number_products_trend",
+                "get_product_detail",
+                "get_product_trend"
+            ],
+            "spec": {
+                "url": "https://p368pssv-7072.uks1.devtunnels.ms/mcp",
+                "enable_dynamic_discovery": false,
+                "mcp_tool_description": {
+                    "tools": [
+                        {
+                        "name": "get_meeting_sentiment_trend",
+                        "description": "Return trend of overall meeting sentiment (Positive/Neutral/Negative) over time.",
+                        "inputSchema": {
+                            "type": "object",
+                            "properties": {
+                            "start_date": {
+                                "anyOf": [
+                                {
+                                    "type": "string"
+                                },
+                                {
+                                    "type": "null"
+                                }
+                                ],
+                                "default": null
+                            },
+                            "end_date": {
+                                "anyOf": [
+                                {
+                                    "type": "string"
+                                },
+                                {
+                                    "type": "null"
+                                }
+                                ],
+                                "default": null
+                            },
+                            "granularity": {
+                                "default": "month",
+                                "type": "string"
+                            },
+                            "limit": {
+                                "default": 200,
+                                "type": "integer"
+                            }
+                            }
+                        },
+                        "outputSchema": {
+                            "type": "object",
+                            "properties": {
+                            "result": {
+                                "items": {
+                                "additionalProperties": true,
+                                "type": "object"
+                                },
+                                "type": "array"
+                            }
+                            },
+                            "required": [
+                            "result"
+                            ],
+                            "x-fastmcp-wrap-result": true
+                        },
+                        "_meta": {
+                            "_fastmcp": {
+                            "tags": []
+                            }
+                        }
+                        },
+                        {
+                        "name": "get_meeting_sentiment_segment_trend",
+                        "description": "Return trend of positive/neutral/negative percentages over time.",
+                        "inputSchema": {
+                            "type": "object",
+                            "properties": {
+                            "start_date": {
+                                "anyOf": [
+                                {
+                                    "type": "string"
+                                },
+                                {
+                                    "type": "null"
+                                }
+                                ],
+                                "default": null
+                            },
+                            "end_date": {
+                                "anyOf": [
+                                {
+                                    "type": "string"
+                                },
+                                {
+                                    "type": "null"
+                                }
+                                ],
+                                "default": null
+                            },
+                            "granularity": {
+                                "default": "month",
+                                "type": "string"
+                            },
+                            "limit": {
+                                "default": 200,
+                                "type": "integer"
+                            }
+                            }
+                        },
+                        "outputSchema": {
+                            "type": "object",
+                            "properties": {
+                            "result": {
+                                "items": {
+                                "additionalProperties": true,
+                                "type": "object"
+                                },
+                                "type": "array"
+                            }
+                            },
+                            "required": [
+                            "result"
+                            ],
+                            "x-fastmcp-wrap-result": true
+                        },
+                        "_meta": {
+                            "_fastmcp": {
+                            "tags": []
+                            }
+                        }
+                        },
+                        {
+                        "name": "get_number_products_trend",
+                        "description": "Return trend of how many products/funds were discussed per meeting over time.",
+                        "inputSchema": {
+                            "type": "object",
+                            "properties": {
+                            "start_date": {
+                                "anyOf": [
+                                {
+                                    "type": "string"
+                                },
+                                {
+                                    "type": "null"
+                                }
+                                ],
+                                "default": null
+                            },
+                            "end_date": {
+                                "anyOf": [
+                                {
+                                    "type": "string"
+                                },
+                                {
+                                    "type": "null"
+                                }
+                                ],
+                                "default": null
+                            },
+                            "granularity": {
+                                "default": "month",
+                                "type": "string"
+                            },
+                            "limit": {
+                                "default": 200,
+                                "type": "integer"
+                            }
+                            }
+                        },
+                        "outputSchema": {
+                            "type": "object",
+                            "properties": {
+                            "result": {
+                                "items": {
+                                "additionalProperties": true,
+                                "type": "object"
+                                },
+                                "type": "array"
+                            }
+                            },
+                            "required": [
+                            "result"
+                            ],
+                            "x-fastmcp-wrap-result": true
+                        },
+                        "_meta": {
+                            "_fastmcp": {
+                            "tags": []
+                            }
+                        }
+                        },
+                        {
+                        "name": "get_product_detail",
+                        "description": "Return products by mentions with classification levels.",
+                        "inputSchema": {
+                            "type": "object",
+                            "properties": {
+                            "start_date": {
+                                "anyOf": [
+                                {
+                                    "type": "string"
+                                },
+                                {
+                                    "type": "null"
+                                }
+                                ],
+                                "default": null
+                            },
+                            "end_date": {
+                                "anyOf": [
+                                {
+                                    "type": "string"
+                                },
+                                {
+                                    "type": "null"
+                                }
+                                ],
+                                "default": null
+                            },
+                            "limit": {
+                                "default": 200,
+                                "type": "integer"
+                            },
+                            "top_n": {
+                                "default": 50,
+                                "type": "integer"
+                            }
+                            }
+                        },
+                        "outputSchema": {
+                            "type": "object",
+                            "properties": {
+                            "result": {
+                                "items": {
+                                "additionalProperties": true,
+                                "type": "object"
+                                },
+                                "type": "array"
+                            }
+                            },
+                            "required": [
+                            "result"
+                            ],
+                            "x-fastmcp-wrap-result": true
+                        },
+                        "_meta": {
+                            "_fastmcp": {
+                            "tags": []
+                            }
+                        }
+                        },
+                        {
+                        "name": "get_product_trend",
+                        "description": "Return trend of mentions for a specific product over time.",
+                        "inputSchema": {
+                            "type": "object",
+                            "properties": {
+                            "product": {
+                                "type": "string"
+                            },
+                            "start_date": {
+                                "anyOf": [
+                                {
+                                    "type": "string"
+                                },
+                                {
+                                    "type": "null"
+                                }
+                                ],
+                                "default": null
+                            },
+                            "end_date": {
+                                "anyOf": [
+                                {
+                                    "type": "string"
+                                },
+                                {
+                                    "type": "null"
+                                }
+                                ],
+                                "default": null
+                            },
+                            "granularity": {
+                                "default": "month",
+                                "type": "string"
+                            },
+                            "limit": {
+                                "default": 200,
+                                "type": "integer"
+                            }
+                            },
+                            "required": [
+                            "product"
+                            ]
+                        },
+                        "outputSchema": {
+                            "type": "object",
+                            "properties": {
+                            "result": {
+                                "items": {
+                                "additionalProperties": true,
+                                "type": "object"
+                                },
+                                "type": "array"
+                            }
+                            },
+                            "required": [
+                            "result"
+                            ],
+                            "x-fastmcp-wrap-result": true
+                        },
+                        "_meta": {
+                            "_fastmcp": {
+                            "tags": []
+                            }
+                        }
+                        },
+                        {
+                        "name": "get_insight",
+                        "description": "Return filtered insights across meetings and products. Uses Azure OpenAI when available.",
+                        "inputSchema": {
+                            "type": "object",
+                            "properties": {
+                            "product": {
+                                "type": "string"
+                            },
+                            "asset_class": {
+                                "type": "string"
+                            },
+                            "level_1": {
+                                "type": "string"
+                            },
+                            "level_2": {
+                                "type": "string"
+                            },
+                            "level_3": {
+                                "type": "string"
+                            },
+                            "level_4": {
+                                "type": "string"
+                            },
+                            "level_5": {
+                                "type": "string"
+                            },
+                            "sentiment": {
+                                "type": "string"
+                            },
+                            "start_date": {
+                                "type": "string"
+                            },
+                            "end_date": {
+                                "type": "string"
+                            },
+                            "limit": {
+                                "default": "200",
+                                "type": "integer"
+                            }
+                            }
+                        },
+                        "annotations": {
+                            "readOnlyHint": true,
+                            "destructiveHint": false,
+                            "openWorldHint": false
+                        },
+                        "_meta": {
+                            "openai/outputTemplate": "ui://widget/portfolio-radar.html",
+                            "openai/widgetAccessible": true,
+                            "openai/toolInvocation/invoking": "Loading portfolio radar…",
+                            "openai/toolInvocation/invoked": "Portfolio radar ready.",
+                            "openai/resultCanProduceWidget": true
+                        }
+                        }
+                    ]
+                    }
+            },
+            "auth": {
+                "type": "None"
+            }
+        }
+    ]
+}

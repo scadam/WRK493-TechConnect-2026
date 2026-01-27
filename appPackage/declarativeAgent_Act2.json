@@ -1,7 +1,18 @@
 {
-    "$schema": "https://developer.microsoft.com/json-schemas/copilot/declarative-agent/v1.5/schema.json",
-    "version": "v1.5",
-    "name": "WRK493 TechConnect 2026 Act 2",
+    "$schema": "https://developer.microsoft.com/json-schemas/copilot/declarative-agent/v1.6/schema.json",
+    "version": "v1.6",
+    "name": "Client Meeting Analyst",
     "description": "Act 2 of the declarative agent created with Microsoft 365 Agents Toolkit",
-    "instructions": "$[file('instruction.txt')]"
+    "instructions": "$[file('instruction.txt')]",
+    "behavior_overrides": {
+        "special_instructions": {
+            "discourage_model_knowledge": true
+        }
+    },
+    "actions": [
+        {
+            "id": "salesforcemcp",
+            "file": "mcp-plugin.json"
+        }
+    ]
 }

@@ -1,0 +1,9 @@
+{
+	"servers": {
+		"my-salesforce-mcp": {
+			"url": "http://localhost:7072/mcp",
+			"type": "http"
+		}
+	},
+	"inputs": []
+}
