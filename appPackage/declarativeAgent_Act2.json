@@ -2,17 +2,34 @@
     "$schema": "https://developer.microsoft.com/json-schemas/copilot/declarative-agent/v1.6/schema.json",
     "version": "v1.6",
     "name": "Client Meeting Analyst",
-    "description": "Act 2 of the declarative agent created with Microsoft 365 Agents Toolkit",
+    "description": "M365 Copilot Agent that can query Salesforce via MCP and OpenAPI with OAI SDK integration.",
     "instructions": "$[file('instruction_Act2.txt')]",
     "behavior_overrides": {
         "special_instructions": {
             "discourage_model_knowledge": true
         }
     },
+    "disclaimer": {
+        "text": "This is a non‑production demonstration agent built for illustrative purposes only, using Salesforce OpenAPI, OAuth, MCP, and OpenAI SDK; outputs are AI‑generated, may be incomplete or inaccurate, and must not be relied on for operational, legal, financial, or compliance decisions."
+    },
     "actions": [
         {
             "id": "salesforcemcp",
             "file": "mcp-plugin.json"
+        }
+    ],
+    "conversation_starters": [
+        {
+            "title": "Portfolio Radar",
+            "text": "Get portfolio insights from all client meetings."
+        },
+        {
+            "title": "Meeting Sentiment Trends",
+            "text": "Analyze sentiment trends across client meetings."
+        },
+        {
+            "title": "Product Mentions",
+            "text": "Identify and analyze product mentions in client meetings."
         }
     ]
 }

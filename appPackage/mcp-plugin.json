@@ -8,6 +8,7 @@
         {
             "name": "get_insight",
             "description": "Return filtered insights across meetings and products. Uses Azure OpenAI when available.",
+            "x-isConsequential": false,
             "parameters": {
                 "type": "object",
                 "properties": {
@@ -52,6 +53,7 @@
         {
             "name": "get_meeting_sentiment_segment_trend",
             "description": "Return trend of positive/neutral/negative percentages over time.",
+            "x-isConsequential": false,
             "parameters": {
                 "type": "object",
                 "properties": {
@@ -76,6 +78,7 @@
         {
             "name": "get_meeting_sentiment_trend",
             "description": "Return trend of overall meeting sentiment (Positive/Neutral/Negative) over time.",
+            "x-isConsequential": false,
             "parameters": {
                 "type": "object",
                 "properties": {
@@ -100,6 +103,7 @@
         {
             "name": "get_number_products_trend",
             "description": "Return trend of how many products/funds were discussed per meeting over time.",
+            "x-isConsequential": false,
             "parameters": {
                 "type": "object",
                 "properties": {
@@ -124,6 +128,7 @@
         {
             "name": "get_product_detail",
             "description": "Return products by mentions with classification levels.",
+            "x-isConsequential": false,
             "parameters": {
                 "type": "object",
                 "properties": {
@@ -148,6 +153,7 @@
         {
             "name": "get_product_trend",
             "description": "Return trend of mentions for a specific product over time.",
+            "x-isConsequential": false,
             "parameters": {
                 "type": "object",
                 "properties": {
