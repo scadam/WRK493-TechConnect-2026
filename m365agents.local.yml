@@ -18,7 +18,7 @@ provision:
   - uses: teamsApp/zipAppPackage
     with:
       # Path to manifest template
-      manifestPath: ./appPackage/manifest.json
+      manifestPath: ./appPackage/manifest_Act1.json
       outputZipPath: ./appPackage/build/appPackage.${{TEAMSFX_ENV}}.zip
       outputFolder: ./appPackage/build
 
