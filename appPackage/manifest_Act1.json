@@ -4,22 +4,22 @@
     "version": "1.0.7",
     "id": "${{TEAMS_APP_ID_1}}",
     "developer": {
-        "name": "My App, Inc.",
-        "websiteUrl": "https://www.example.com",
-        "privacyUrl": "https://www.example.com/privacy",
-        "termsOfUseUrl": "https://www.example.com/termofuse"
+        "name": "Scott Adams & Inbal Peled, MSFT",
+        "websiteUrl": "https://www.microsoft.com",
+        "privacyUrl": "https://www.microsoft.comprivacy",
+        "termsOfUseUrl": "https://www.microsoft.com/termofuse"
     },
     "icons": {
-        "color": "color.png",
+        "color": "clientagent192.png",
         "outline": "outline.png"
     },
     "name": {
-        "short": "WRK493 TechConnect 2026${{APP_NAME_SUFFIX}}",
-        "full": "Full name for WRK493 TechConnect 2026"
+        "short": "WRK493 TechConnect 2026 Act 1",
+        "full": "WRK493 TechConnect 2026 Client Prep Meeting"
     },
     "description": {
-        "short": "Short description for WRK493 TechConnect 2026",
-        "full": "Full description for WRK493 TechConnect 2026"
+        "short": "WRK493 TechConnect 2026 Act 1 agent",
+        "full": "WRK493 TechConnect 2026 Client Prep Meeting agent connects to SharePoint, Teams, Email, People, Graph Connectors and Dataverse"
     },
     "accentColor": "#FFFFFF",
     "composeExtensions": [],

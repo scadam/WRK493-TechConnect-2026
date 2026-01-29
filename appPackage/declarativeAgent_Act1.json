@@ -28,7 +28,7 @@
             "name": "TeamsMessages",
             "urls": [
                 {
-                    "url": "https://teams.microsoft.com/l/channel/19%3A0250c2f80f13439f91b10f1052425555%40thread.skype/M365%20Copilot?groupId=381ff9d6-c502-4fbf-8ec4-ea237b50bbcf&tenantId=72f988bf-86f1-41af-91ab-2d7cd011db47"
+                    "url": "https://teams.microsoft.com/l/channel/19%3AI0CLCoXDxo3eXt8nTbyN9159_ZP8eBbQ9_EtHQhlrqE1%40thread.tacv2/products?groupId=77ad315c-d74c-494f-8d86-97efc439ccc3&tenantId=72f988bf-86f1-41af-91ab-2d7cd011db47"
                 }
             ]
         },
@@ -39,7 +39,7 @@
             "name": "Email",
             "folders": [
                 {
-                    "folder_id": "inbox"
+                    "folder_id": "Tech Connect"
                 }
             ]
         },
@@ -47,15 +47,55 @@
             "name": "GraphConnectors",
             "connections": [
                 {
-                    "connection_id": "ServiceNowCatalog2212"
+                    "connection_id": "ADOWikiSupportability1"
                 }
             ]
         },
+    {
+      "name": "Dataverse",
+      "knowledge_sources": [
+        {
+          "host_name": "org67045a2d.crm.dynamics.com",
+          "skill": "new_dvtablesearch_aiplugin_model_cr8e3_salesinbal",
+          "tables": [
+            {
+              "table_name": "Sales Performance"
+            }
+          ]
+        }
+      ]
+    },
         {
             "name": "GraphicArt"
         },
         {
             "name": "CodeInterpreter"
+        }
+    ],
+        "conversation_starters": [
+        {
+            "title": "Contract information",
+            "text": "What was my warranty time frame for the contract with GenePoint"
+        },
+        {
+            "title": "Internal updates",
+            "text": "Are there updates on our generators in our Teams channel?"
+        },
+        {
+            "title": "Actuals and attainment",
+            "text": "give me a chart of my target vs actuals for my customers"
+        },
+        {
+            "title": "Email follow-up",
+            "text": "Any emails I need to follow up? focus on optional new sales opportunities"
+        },
+        {
+            "title": "Products Timeline",
+            "text": "What is the timeline of the rollout of Agent Mode in Excel"
+        },
+        {
+            "title": "Design",
+            "text": "Design a picture for my new portable generator"
         }
     ]
 }
