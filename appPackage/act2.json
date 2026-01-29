@@ -1,0 +1,22 @@
+{
+    "$schema": "https://developer.microsoft.com/json-schemas/copilot/declarative-agent/v1.6/schema.json",
+    "version": "v1.6",
+    "name": "Client Meeting Analyst",
+    "description": "<agent description>",
+    "instructions": "$[file('instruction_Act2.txt')]",
+    "actions": [
+        {
+            "id": "salesforcemcp",
+            "file": "mcp-plugin.json"
+        },
+        {
+            "id": "salesforceopenapi",
+            "file": "sf-plugin.json"
+        }
+    ],
+    "worker_agents": [
+        {
+            "id": "T_f93e78f3-d6a0-e7b9-f536-d0c8630dcfdc"
+        }
+    ]
+}

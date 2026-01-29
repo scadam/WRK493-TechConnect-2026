@@ -9,14 +9,14 @@ environmentFolderPath: ./env
 provision:
 
   # Creates the act 1 app
-  - uses: teamsApp/create
-    with:
-      # app name
-      name: WRK493 TechConnect 2026 Act 1-${{APP_NAME_SUFFIX}}
-    # Write the information of created resources into environment file for
-    # the specified environment variable(s).
-    writeToEnvironmentFile:
-      teamsAppId: TEAMS_APP_ID_1
+  #- uses: teamsApp/create
+  #  with:
+  #    # app name
+  #    name: WRK493 TechConnect 2026 Act 1-${{APP_NAME_SUFFIX}}
+  #  # Write the information of created resources into environment file for
+  #  # the specified environment variable(s).
+  #  writeToEnvironmentFile:
+  #    teamsAppId: TEAMS_APP_ID_1
 
   # Build app package with latest env value
   - uses: teamsApp/zipAppPackage
@@ -50,14 +50,14 @@ provision:
   #    shareLink: SHARE_LINK_1
 
   # Creates the act 2 app
-  - uses: teamsApp/create
-    with:
-      # app name
-      name: WRK493 TechConnect 2026 Act 2-${{APP_NAME_SUFFIX}}
-    # Write the information of created resources into environment file for
-    # the specified environment variable(s).
-    writeToEnvironmentFile:
-      teamsAppId: TEAMS_APP_ID_2
+  #- uses: teamsApp/create
+  #  with:
+  #    # app name
+  #    name: WRK493 TechConnect 2026 Act 2-${{APP_NAME_SUFFIX}}
+  #  # Write the information of created resources into environment file for
+  #  # the specified environment variable(s).
+  #  writeToEnvironmentFile:
+  #    teamsAppId: TEAMS_APP_ID_2
 
   # Build app package with latest env value
   - uses: teamsApp/zipAppPackage
