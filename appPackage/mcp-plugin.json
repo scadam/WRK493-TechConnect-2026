@@ -193,7 +193,7 @@
                 "get_product_trend"
             ],
             "spec": {
-                "url": "https://p368pssv-7072.uks1.devtunnels.ms/mcp",
+                "url": "https://transcript-mcp.agreeablegrass-a5f3eb50.eastus.azurecontainerapps.io/mcp",
                 "enable_dynamic_discovery": false,
                 "mcp_tool_description": {
                     "tools": [
