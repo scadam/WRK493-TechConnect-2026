@@ -32,22 +32,22 @@ provision:
   #    appPackagePath: ./appPackage/build/appPackage_Act1.${{TEAMSFX_ENV}}.zip
   # Update the app manifest to an existing app in Developer Portal.
   # Will use the app id in manifest file to determine which app to update.
-  #- uses: teamsApp/update
-  #  with:
+  - uses: teamsApp/update
+    with:
   #    # Relative path to this file. This is the path for built zip file.
-  #     appPackagePath: ./appPackage/build/appPackage_Act1.${{TEAMSFX_ENV}}.zip
+       appPackagePath: ./appPackage/build/appPackage_Act1.${{TEAMSFX_ENV}}.zip
   # Extend your app to Outlook and the Microsoft 365 app
-  #- uses: teamsApp/extendToM365
-  #  with:
+  - uses: teamsApp/extendToM365
+    with:
   #    # Relative path to the build app package.
-  #    appPackagePath: ./appPackage/build/appPackage_Act1.${{TEAMSFX_ENV}}.zip
-  #    scope: ${{AGENT_SCOPE}}
+      appPackagePath: ./appPackage/build/appPackage_Act1.${{TEAMSFX_ENV}}.zip
+      scope: ${{AGENT_SCOPE}}
     # Write the information of created resources into environment file for
     # the specified environment variable(s).
-  #  writeToEnvironmentFile:
-  #    titleId: M365_TITLE_ID_1
-  #    appId: M365_APP_ID_1
-  #    shareLink: SHARE_LINK_1
+    writeToEnvironmentFile:
+      titleId: M365_TITLE_ID_1
+      appId: M365_APP_ID_1
+      shareLink: SHARE_LINK_1
 
   # Creates the act 2 app
   #- uses: teamsApp/create
@@ -73,22 +73,22 @@ provision:
   #    appPackagePath: ./appPackage/build/appPackage_Act2.${{TEAMSFX_ENV}}.zip
   # Update the app manifest to an existing app in Developer Portal.
   # Will use the app id in manifest file to determine which app to update.
-  #- uses: teamsApp/update
-  #  with:
-  #    # Relative path to this file. This is the path for built zip file.
-  #    appPackagePath: ./appPackage/build/appPackage_Act2.${{TEAMSFX_ENV}}.zip
+  - uses: teamsApp/update
+    with:
+      # Relative path to this file. This is the path for built zip file.
+      appPackagePath: ./appPackage/build/appPackage_Act2.${{TEAMSFX_ENV}}.zip
   # Extend your app to Outlook and the Microsoft 365 app
-  #- uses: teamsApp/extendToM365
-  #  with:
+  - uses: teamsApp/extendToM365
+    with:
   #    # Relative path to the build app package.
-  #    appPackagePath: ./appPackage/build/appPackage_Act2.${{TEAMSFX_ENV}}.zip
-  #    scope: ${{AGENT_SCOPE}}
+      appPackagePath: ./appPackage/build/appPackage_Act2.${{TEAMSFX_ENV}}.zip
+      scope: ${{AGENT_SCOPE}}
     # Write the information of created resources into environment file for
     # the specified environment variable(s).
-  #  writeToEnvironmentFile:
-  #    titleId: M365_TITLE_ID_2
-  #    appId: M365_APP_ID_2
-  #    shareLink: SHARE_LINK_2
+    writeToEnvironmentFile:
+      titleId: M365_TITLE_ID_2
+      appId: M365_APP_ID_2
+      shareLink: SHARE_LINK_2
 
 # Triggered when 'teamsapp publish' is executed
 publish:

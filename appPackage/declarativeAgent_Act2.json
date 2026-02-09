@@ -1,7 +1,7 @@
 {
     "$schema": "https://developer.microsoft.com/json-schemas/copilot/declarative-agent/v1.6/schema.json",
     "version": "v1.6",
-    "name": "Client Meeting Analyst",
+    "name": "Client Meeting Analyst v1.1.2",
     "description": "M365 Copilot Agent that can query Salesforce via MCP and OpenAPI with OAI SDK integration.",
     "instructions": "$[file('instruction_Act2.txt')]",
     "behavior_overrides": {
@@ -29,7 +29,7 @@
     ],
     "worker_agents": [
         {
-            "id": "T_f93e78f3-d6a0-e7b9-f536-d0c8630dcfdc"
+            "id": "T_1c3d98b6-4bc4-5ecb-87b6-983b6abbd1d1"
         }
     ],
     "conversation_starters": [

@@ -1,8 +1,8 @@
 {
     "$schema": "https://developer.microsoft.com/json-schemas/copilot/declarative-agent/v1.5/schema.json",
     "version": "v1.5",
-    "name": "WRK493 TechConnect 2026${{APP_NAME_SUFFIX}}",
-    "description": "Declarative agent created with Microsoft 365 Agents Toolkit",
+    "name": "Client Meeting Prep Agent v1.1.2",
+    "description": "M365 Copilot Agent that can connect to OneDrive, SharePoint, Teams Messages, People, Email, Graph Connectors and Dataverse to help prepare for client meetings.",
     "instructions": "$[file('instruction_Act1.txt')]",
     "disclaimer": {
         "text": " 👋 This is ATK agent for WRK493 TechConnect 2026 event"
